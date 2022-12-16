@@ -1,5 +1,5 @@
-FROM tomcat:8.0
-ADD ./target/*.war /usr/local/tomcat/webapps/
-EXPOSE 8080
-WORKDIR /usr/local/tomcat/webapps/
-CMD ["catalina.sh", "run"]
+FROM java:8
+COPY . /var/www/java
+WORKDIR /var/www/java
+RUN javac Hello.java
+CMD ["java", "Hello"]
